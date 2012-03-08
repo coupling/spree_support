@@ -1,0 +1,41 @@
+<%= form_for([:admin, @download], :html => {:id => "download_form"}) do |f| %>
+  <fieldset>
+    <%= f.label :name %><span class="required">*</span><br />
+    <%= f.text_field :name, :class => "title" %>
+    <%= f.error_message_on :name %>
+
+    <br />
+
+    <%= f.label :url %><span class="required">*</span><br />
+    <%= f.text_field :url, :class => 'fullwidth' %>
+    <%= f.error_message_on :url %>
+
+
+    <div class="clearfix" data-hook="new_product_attrs">
+      <div class="left">
+
+        <%= f.label :download_category_id %><span class="required">*</span><br />
+        <%= f.select :download_category_id, @download_categories.collect {|category| [category.name, category.id]} %>
+        <%= f.error_message_on :download_category_id %>
+
+        <br/>
+
+        <%= f.label :language_id %><span class="required">*</span><br />
+        <%= f.select :language_id, @languages.collect {|language| [language[:name], language[:id]]} %>
+        <%= f.error_message_on :language_id %>
+
+      </div>
+      <div class="right">
+
+        <%= f.label :products %><span class="required">*</span><br />
+        <% @products.each do |product| -%>
+          <%= check_box_tag "download[product_ids][]", product.id, @download.is_relevant_for_product?(product), :id => "download_product_id_#{product.id}" -%> <%= f.label "product_id_#{product.id}", product.name -%><br />
+        <% end -%>
+        <%= f.error_message_on :products %>
+
+      </div>
+    </div>
+
+    <%= render :partial => 'spree/admin/shared/new_resource_links' %>
+  </fieldset>
+<% end %>
