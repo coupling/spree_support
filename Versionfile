@@ -1,2 +1,2 @@
-"1.0.x" => { :tag => "v1.0", :version => "1.0.0" }
+"1.0.x" => { :branch => "master", :version => "1.0.0" }
 
