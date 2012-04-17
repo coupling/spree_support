@@ -1,0 +1,15 @@
+<table class="index">
+  <tr>
+    <th><%= t('activerecord.attributes.article_category.name') %></th>
+    <th class="tc"><%= t('scaffold.actions') %></th>
+  </tr>
+  <% @article_categories.each do |article_category| %>
+    <tr>
+      <td><%= article_category.name %></td>
+      <td class="actions">
+        <%= link_to_edit article_category, :class => "edit" %>
+        <%= link_to_delete article_category %>
+      </td>
+    </tr>
+  <% end %>
+</table>

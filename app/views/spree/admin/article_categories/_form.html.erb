@@ -1,0 +1,20 @@
+<%= form_for([:admin, @article_category], :html => {:id => "article_category_form", :multipart => true}) do |f| %>
+  <fieldset>
+    <%= f.label :name %><span class="required">*</span><br />
+    <%= f.text_field :name, :class => "fullwidth title" %>
+    <%= f.error_message_on :name %>
+
+    <div class="clearfix" data-hook="new_product_attrs">
+      <div class="left">
+
+      <%= f.label :icon %><span class="required">*</span>
+      <%= f.file_field :icon %>
+      <%= f.error_message_on :icon %>
+
+      </div>
+    </div>
+
+    <%= render :partial => 'spree/admin/shared/new_resource_links' %>
+
+  </fieldset>
+<% end %>

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @admin_article.name %>
+</p>
+
+<p>
+  <b>Language:</b>
+  <%= @admin_article.language_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_article_path(@admin_article) %> |
+<%= link_to 'Back', admin_articles_path %>

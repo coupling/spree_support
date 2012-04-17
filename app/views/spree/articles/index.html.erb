@@ -1,0 +1,39 @@
+<div id="articles">
+  <div id="select-articles" class="left">
+    <%- @printers.each do |printer| %>
+      <%= link_to printer.name, "#", :class => "printer-#{printer.id}", :style => ("background-image:url('#{printer.images.first.attachment.url(:mini)}')" if printer.images.any?) %><br />
+    <%- end %>
+  </div>
+
+  <div class="right" id="show-articles">
+    <%- @article_categories.each do |category| %>
+      <div class="show-category-<%= category.id %>" style="display:none;">
+        <h2><%= category.name %></h2>
+        <br />
+        <%- category.articles.each do |article| %>
+          <%= link_to article.name, article.url %><br />
+        <%- end %>
+      </div>
+    <%- end %>
+
+    <%- @printers.each do |printer| %>
+      <div class="show-printer-<%= printer.id %>" style="display:none;">
+        <h2><%= printer.name %></h2>
+        <br />
+        <%- @article_categories.each do |category| %>
+          <h3 style="background-image:url('<%= category.icon.url(:mini) %>')"><%= category.name %></h3>
+          <% category.articles.each do |article| %>
+            <%= link_to article.name, article.url if printer.articles.map(&:id).include? article.id  %><br />
+          <% end %>
+        <% end %>
+      </div>
+    <%- end %>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $('#select-articles a').click(function() {
+    $('#show-articles').children().hide();
+    $('.show-' + $(this).attr('class')).show();
+  });
+</script>

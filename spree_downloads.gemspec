@@ -1,10 +1,10 @@
 # encoding: UTF-8
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
-  s.name        = 'spree_downloads'
+  s.name        = 'spree_support'
   s.version     = '1.0.1'
-  s.summary     = 'Adds a downloads (via urls) page for products'
-  s.description = 'Manage downloads and download categories in the admin'
+  s.summary     = 'Adds a support (via urls) page for products'
+  s.description = 'Manage support pages and support categories in the admin'
   s.required_ruby_version = '>= 1.8.7'
 
   s.author            = 'Martijn Lafeber'

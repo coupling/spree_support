@@ -1,8 +1,8 @@
 Spree::Core::Engine.routes.prepend do
   namespace :admin do
-    resources :download_categories
-    resources :downloads
+    resources :article_categories
+    resources :articles
   end
 
-  resources :downloads
+  resources :articles
 end

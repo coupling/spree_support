@@ -1,4 +1,4 @@
-SpreeDownloads
+SpreeSupport
 ==============
 
 Introduction goes here.
